@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dating App Recommender</title>
+</head>
+
+<body>
+  <ul>
+  <form action="/predict">
+    {% for f in features %}
+        <br>
+        {{ f }}
+        <br>
+        <input type="text" name="{{ f }}">
+    {% endfor %}
+  </ul>
+  <input type="submit" value="Submit" method="get">
+  </form>
+
+  <p>
+    prediction:
+    {% for p in prediction %}
+      <br>  {{p['name']}}:{{ 100*p['prob'] | round(1) }}%
+    {% endfor %}
+  </p>
+
+</body>
+
+</html>
+
+
+<p>
+  prediction:
+  {% for p in prediction %}
+    <br>  {{p}}
+  {% endfor %}
+</p>
